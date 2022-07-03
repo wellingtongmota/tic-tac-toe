@@ -1,0 +1,36 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 100vh;
+    background-color: #2C3639;
+    color: #fff;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 405px;
+    height: auto;
+    /* background-color: #3F4E4F; */
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 125px;
+    height: 125px;
+    margin: 5px;
+    background-color: cadetblue;
+    border-radius: 14px;
+    
+}
