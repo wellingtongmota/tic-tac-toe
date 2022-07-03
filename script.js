@@ -1,28 +1,22 @@
 const verificaPosicao = (player, jogada, posicao) => {
-    if (posicao == 'X' || posicao == 'O') {
+    if (player == posicao) {
         console.log('já tem um valor')
-         return jogada--
+        return jogada--
     } else {
         return jogada++
     }
 }
 
-const jogo = document.querySelector('.wrapper')
+const jogo = documegitnt.querySelector('.wrapper')
 var jogada = 0
 
 jogo.addEventListener('click', e => {
     const div = e.target
-    const posicao = div.dataset.action
-    const valor = div.textContent
+    const action = div.dataset.action
+    const posicao = div.textContent
 
-    if (valor == 'X' || valor == 'O')
-        console.log('já tem um valor')
-    else {
-        if (jogada % 2 == 0) {
-            jogada = verificaPosicao('X', jogada, posicao)
-        } else {
-            jogada = verificaPosicao('O', jogada, posicao)
-        }
-    }
+    if (jogada % 2 == 0) jogada = verificaPosicao('X', jogada, posicao)
+    else jogada = verificaPosicao('O', jogada, posicao)
+
     console.log(action)
 })
