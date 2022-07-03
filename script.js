@@ -5,9 +5,16 @@ const verificaPosicao = (posicao) => {
     return true
 }
 
-const preencheMapa = () => {
+const criaMapa = () => {
     for (var pos = 0; pos < boxs.length; pos++){
         mapa.push(boxs[pos].textContent)
+    }
+}
+
+const atualizaMapa = (action, player) => {
+    for (var pos = 0; pos < boxs.length; pos++){
+        if(boxs[pos].dataset.action == action)
+            mapa[pos] = player
     }
 }
 
@@ -22,16 +29,20 @@ jogo.addEventListener('click', e => {
     const posicao = div.textContent
 
     if (mapa.length == 0)
-        preencheMapa()
+        criaMapa()
 
     console.log(mapa)
 
     if (jogada % 2 == 0) {
-        if(verificaPosicao(posicao))
+        if(verificaPosicao(posicao)){
             div.textContent = 'X'
+            atualizaMapa(action, 'X')
+        }
     } else {
-        if(verificaPosicao(posicao))
-            div.textContent = 'O' 
+        if(verificaPosicao(posicao)) {
+            div.textContent = 'O'
+            atualizaMapa(action, 'O')
+        }
     }
 
     jogada++
