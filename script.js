@@ -33,7 +33,7 @@ const verificaJogada = (player) => {
         d1 == true ||
         d2 == true
     )
-        console.log('Fim de jogo')
+        fimJogo(player)
 }
 
 const criaMapa = () => {
@@ -46,6 +46,14 @@ const atualizaMapa = (action, player) => {
     for (var pos = 0; pos < boxs.length; pos++) {
         if (boxs[pos].dataset.action == action)
             mapa[pos] = player
+    }
+}
+
+const fimJogo = (player) => {
+    console.log('Fim de jogo ' + player + ' venceu!')
+    mapa.length = 0
+    for (var pos = 0; pos < boxs.length; pos++) {
+        boxs[pos].textContent = ''
     }
 }
 
@@ -62,7 +70,7 @@ jogo.addEventListener('click', e => {
     if (mapa.length == 0)
         criaMapa()
 
-    console.log(mapa)
+    // console.log(mapa)
 
     if (jogada % 2 == 0) {
         if (verificaPosicao(posicao)) {
