@@ -55,10 +55,16 @@ const fimJogo = (player) => {
     for (var pos = 0; pos < boxs.length; pos++) {
         boxs[pos].textContent = ''
     }
+
+    // const vitoria = document.getElementById('vitoria')
+
+    // // disabled attribute
+    // vitoria.removeAttribute('disabled')
+
 }
 
 const jogo = document.querySelector('.wrapper')
-var boxs = document.querySelectorAll('[data-action]')
+var boxs = document.querySelectorAll('.box')
 var jogada = 0
 var mapa = []
 
