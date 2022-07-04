@@ -23,7 +23,7 @@
     flex-wrap: wrap;
     width: 415px;
     height: auto;
-    background-color: #3F4E4F;
+    /* background-color: #3F4E4F; */
     border-radius: 14px;
     padding: 5px;
 }
@@ -36,6 +36,9 @@
     width: 125px;
     height: 125px;
     margin: 5px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 70px;
     background-color: cadetblue;
     border-radius: 14px;
     cursor: pointer;
@@ -43,5 +46,6 @@
 
 .box:hover {
     background-color: #386769ab;
-    transition: 0.5s;
+    font-size: 75px;
+    transition: 0.3s;
 }
