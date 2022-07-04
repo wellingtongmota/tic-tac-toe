@@ -40,3 +40,8 @@
     border-radius: 14px;
     cursor: pointer;
 }
+
+.box:hover {
+    background-color: #386769ab;
+    transition: 0.5s;
+}
