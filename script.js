@@ -41,9 +41,9 @@ const criaMapa = () => {
         mapa.push(boxs[pos].textContent)
 }
 
-const atualizaMapa = (action, player) => {
+const atualizaMapa = (box, player) => {
     for (let pos = 0; pos < boxs.length; pos++) {
-        if (boxs[pos].dataset.action == action) {
+        if (boxs[pos].dataset.box == box) {
             mapa[pos] = player
             verificaJogada(player)
         }
@@ -65,7 +65,7 @@ var mapa = []
 
 jogo.addEventListener('click', e => {
     let div = e.target
-    let action = div.dataset.action
+    let box = div.dataset.box
     let valor = div.textContent
 
     if (mapa.length == 0)
@@ -74,12 +74,12 @@ jogo.addEventListener('click', e => {
     if (jogada % 2 == 0) {
         if (verificaPosicao(valor)) {
             div.textContent = 'X'
-            atualizaMapa(action, 'X')
+            atualizaMapa(box, 'X')
         }
     } else {
         if (verificaPosicao(valor)) {
             div.textContent = 'O'
-            atualizaMapa(action, 'O')
+            atualizaMapa(box, 'O')
         }
     }
 
