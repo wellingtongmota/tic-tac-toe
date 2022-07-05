@@ -1,19 +1,19 @@
-const verificaPosicao = (posicao) => {
-    if (posicao == 'X' || posicao == 'O')
+const verificaPosicao = (valor) => {
+    if (valor == 'X' || valor == 'O')
         return false
 
     return true
 }
 
 const verificaJogada = (player) => {
-    var linha1 = mapa.slice(0, 3)
-    var linha2 = mapa.slice(3, 6)
-    var linha3 = mapa.slice(6)
-    var coluna1 = [mapa[0], mapa[3], mapa[6]]
-    var coluna2 = [mapa[1], mapa[4], mapa[7]]
-    var coluna3 = [mapa[2], mapa[5], mapa[8]]
-    var diagonal1 = [mapa[0], mapa[4], mapa[8]]
-    var diagonal2 = [mapa[2], mapa[4], mapa[6]]
+    let linha1 = mapa.slice(0, 3)
+    let linha2 = mapa.slice(3, 6)
+    let linha3 = mapa.slice(6)
+    let coluna1 = [mapa[0], mapa[3], mapa[6]]
+    let coluna2 = [mapa[1], mapa[4], mapa[7]]
+    let coluna3 = [mapa[2], mapa[5], mapa[8]]
+    let diagonal1 = [mapa[0], mapa[4], mapa[8]]
+    let diagonal2 = [mapa[2], mapa[4], mapa[6]]
 
     l1 = linha1.every(function (x) { return x == player; })
     l2 = linha2.every(function (x) { return x == player; })
@@ -37,58 +37,49 @@ const verificaJogada = (player) => {
 }
 
 const criaMapa = () => {
-    for (var pos = 0; pos < boxs.length; pos++) {
+    for (let pos = 0; pos < boxs.length; pos++)
         mapa.push(boxs[pos].textContent)
-    }
 }
 
 const atualizaMapa = (action, player) => {
-    for (var pos = 0; pos < boxs.length; pos++) {
-        if (boxs[pos].dataset.action == action)
+    for (let pos = 0; pos < boxs.length; pos++) {
+        if (boxs[pos].dataset.action == action) {
             mapa[pos] = player
+            verificaJogada(player)
+        }
     }
 }
 
 const fimJogo = (player) => {
     console.log('Fim de jogo ' + player + ' venceu!')
     mapa.length = 0
-    for (var pos = 0; pos < boxs.length; pos++) {
+
+    for (let pos = 0; pos < boxs.length; pos++)
         boxs[pos].textContent = ''
-    }
-
-    // const vitoria = document.getElementById('vitoria')
-
-    // // disabled attribute
-    // vitoria.removeAttribute('disabled')
-
 }
 
 const jogo = document.querySelector('.wrapper')
-var boxs = document.querySelectorAll('.box')
+const boxs = document.querySelectorAll('.box')
 var jogada = 0
 var mapa = []
 
 jogo.addEventListener('click', e => {
-    const div = e.target
-    const action = div.dataset.action
-    const posicao = div.textContent
+    let div = e.target
+    let action = div.dataset.action
+    let valor = div.textContent
 
     if (mapa.length == 0)
         criaMapa()
 
-    // console.log(mapa)
-
     if (jogada % 2 == 0) {
-        if (verificaPosicao(posicao)) {
+        if (verificaPosicao(valor)) {
             div.textContent = 'X'
             atualizaMapa(action, 'X')
-            verificaJogada('X')
         }
     } else {
-        if (verificaPosicao(posicao)) {
+        if (verificaPosicao(valor)) {
             div.textContent = 'O'
             atualizaMapa(action, 'O')
-            verificaJogada('O')
         }
     }
 
