@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-size: 70px;
+    color: #fff;
 }
 
 .container {
@@ -12,7 +13,6 @@
     align-items: center;
     height: 100vh;
     background-color: #2C3639;
-    color: #fff;
 }
 
 .wrapper {
@@ -20,8 +20,6 @@
     flex-wrap: wrap;
     width: 415px;
     height: auto;
-    /* background-color: #3F4E4F; */
-    border-radius: 14px;
     padding: 5px;
 }
 
@@ -33,7 +31,7 @@
     width: 125px;
     height: 125px;
     margin: 5px;
-    background-color: cadetblue;
+    background-color: #5f9ea0;
     border-radius: 14px;
     cursor: pointer;
 }
@@ -55,7 +53,6 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
 }
 
 button {
@@ -64,7 +61,6 @@ button {
     padding: 10px;
     font-size: 25px;
     background-color: #2C3639;
-    color: #fff;
     cursor: pointer;
 }
 
