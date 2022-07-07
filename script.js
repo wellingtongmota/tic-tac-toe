@@ -1,9 +1,5 @@
-const verificaPosicao = (valor) => {
-    if (valor == 'X' || valor == 'O')
-        return false
+const verificaPosicao = (valor) => valor == 'X' || valor == 'O' ? false : true
 
-    return true
-}
 
 const verificaJogada = (player) => {
     let linha1 = mapa.slice(0, 3)
@@ -48,6 +44,7 @@ const atualizaMapa = (box, player) => {
             verificaJogada(player)
         }
     }
+    return player
 }
 
 const fimJogo = (player) => {
@@ -58,10 +55,10 @@ const fimJogo = (player) => {
         boxs[pos].textContent = ''
 }
 
-const jogo = document.querySelector('.wrapper')
+const jogo = document.querySelector('.container')
 const boxs = document.querySelectorAll('.box')
-var jogada = 0
-var mapa = []
+let jogada = 0
+let mapa = []
 
 jogo.addEventListener('click', e => {
     let div = e.target
