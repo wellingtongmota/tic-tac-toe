@@ -42,7 +42,7 @@ body {
     transition: 0.3s;
 }
 
-.vitoria {
+.fim {
     display: none;
     flex-direction: column;
     position: fixed;
