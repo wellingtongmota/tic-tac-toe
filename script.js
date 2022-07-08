@@ -15,20 +15,21 @@ const verificaJogada = (player) => {
     ]
 
     for (let i = 0; i < combinacao.length; i++) {
-        vitoria = combinacao[i].every(function (x) { return x == player; })
+        vitoria = combinacao[i].every(x => x == player)
         if(vitoria)
-            fimJogo(player)
+            break
     }
+
+    if (vitoria)
+        fimJogo(player)
 }
 
 const atualizaMapa = (box, player) => {
-    for (let pos = 0; pos < boxs.length; pos++) {
+    for (let pos = 0; pos < boxs.length; pos++)
         if (boxs[pos].dataset.box == box) {
             mapa[pos] = player
             verificaJogada(player)
         }
-    }
-    return player
 }
 
 const fimJogo = (player) => {
