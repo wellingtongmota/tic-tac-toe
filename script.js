@@ -21,11 +21,6 @@ const verificaJogada = (player) => {
     }
 }
 
-const criaMapa = () => {
-    for (let pos = 0; pos < boxs.length; pos++)
-        mapa.push(boxs[pos].textContent)
-}
-
 const atualizaMapa = (box, player) => {
     for (let pos = 0; pos < boxs.length; pos++) {
         if (boxs[pos].dataset.box == box) {
@@ -54,9 +49,6 @@ jogo.addEventListener('click', e => {
     let div = e.target
     let box = div.dataset.box
     let valor = div.textContent
-
-    if (mapa.length == 0)
-        criaMapa()
 
     if (jogada % 2 == 0) {
         if (verificaPosicao(valor)) {
