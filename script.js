@@ -41,27 +41,28 @@ const fimJogo = (player) => {
         boxs[pos].textContent = ''
 }
 
-const jogo = document.querySelector('.container')
 const boxs = document.querySelectorAll('.box')
 let jogada = 0
 let mapa = []
 
-jogo.addEventListener('click', e => {
-    let div = e.target
-    let box = div.dataset.box
-    let valor = div.textContent
+for (let i = 0; i < boxs.length; i++) {
+    boxs[i].addEventListener("click", e => {
+        let div = e.target
+        let box = div.dataset.box
+        let valor = div.textContent
 
-    if (jogada % 2 == 0) {
-        if (verificaPosicao(valor)) {
-            div.textContent = 'X'
-            atualizaMapa(box, 'X')
+        if (jogada % 2 == 0) {
+            if (verificaPosicao(valor)) {
+                div.textContent = 'X'
+                atualizaMapa(box, 'X')
+            }
+        } else {
+            if (verificaPosicao(valor)) {
+                div.textContent = 'O'
+                atualizaMapa(box, 'O')
+            }
         }
-    } else {
-        if (verificaPosicao(valor)) {
-            div.textContent = 'O'
-            atualizaMapa(box, 'O')
-        }
-    }
 
-    jogada++
-})
+        jogada++
+    })
+}
