@@ -48,7 +48,6 @@ body {
     background-color: #386769ab;
     font-size: 75px;
     transition: 0.3s;
-    content: var(--x);
 }
 
 .fim {
