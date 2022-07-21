@@ -16,7 +16,7 @@ const verificaJogada = (player) => {
 
     for (let i = 0; i < combinacao.length; i++) {
         vitoria = combinacao[i].every(x => x == player)
-        if(vitoria)
+        if (vitoria)
             break
     }
 
@@ -64,5 +64,23 @@ for (let i = 0; i < boxs.length; i++) {
         }
 
         jogada++
+    })
+}
+
+for (let i = 0; i < boxs.length; i++) {
+    boxs[i].addEventListener('mouseenter', e => {
+        let div = e.target
+
+        if (div.textContent != '')
+            boxs[i].addEventListener('mouseenter', e => e.preventDefault())
+        else
+            jogada % 2 == 0 ? boxs[i].classList.add('playerX') : boxs[i].classList.add('playerO')
+    })
+}
+
+for (let i = 0; i < boxs.length; i++) {
+    boxs[i].addEventListener('mouseleave', e => {
+        boxs[i].classList.remove('playerX')
+        boxs[i].classList.remove('playerO')
     })
 }
