@@ -46,6 +46,7 @@ let jogada = 0
 let mapa = []
 
 for (let i = 0; i < boxs.length; i++) {
+    
     boxs[i].addEventListener("click", e => {
         let div = e.target
         let box = div.dataset.box
@@ -65,9 +66,7 @@ for (let i = 0; i < boxs.length; i++) {
 
         jogada++
     })
-}
 
-for (let i = 0; i < boxs.length; i++) {
     boxs[i].addEventListener('mouseenter', e => {
         let div = e.target
 
@@ -76,10 +75,8 @@ for (let i = 0; i < boxs.length; i++) {
         else
             jogada % 2 == 0 ? boxs[i].classList.add('playerX') : boxs[i].classList.add('playerO')
     })
-}
 
-for (let i = 0; i < boxs.length; i++) {
-    boxs[i].addEventListener('mouseleave', e => {
+    boxs[i].addEventListener('mouseleave', () => {
         boxs[i].classList.remove('playerX')
         boxs[i].classList.remove('playerO')
     })
